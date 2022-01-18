@@ -1,0 +1,78 @@
+
+
+/*phone*/
+body {
+    font-family: 'Cormorant Garamond', 'Arial', sans-serif;
+    background-color: #e6e6ee;
+    line-height: 1.5;
+    color: #8e0000;
+}
+
+p {
+    font-family: Arial, sans-serif;
+    margin: 16px 0;
+
+}
+
+.section {
+    column-count: 1;
+
+}
+
+.page-container {
+    width: 90%;
+    margin: 60px auto;
+    text-align: center;
+}
+
+.round-button {
+    display: inline-block;
+    border-radius: 50%;
+    background-color: #8e0000;
+    width: 60px;
+    height: 60px;
+    color: #e6e6ee;
+    transform: rotate(12deg);
+    /*margin-left: 440px;*/
+    margin-top: 15px;
+
+}
+
+.round-button:hover {
+    width: 65px;
+    height: 65px;
+    transform: rotate(15deg);
+}
+
+
+/*tablet*/
+@media screen and (min-width: 768px) {
+
+    .section {
+        column-count: 2;
+    }
+
+    button {
+        margin-left: 475px;
+    }
+}
+
+/*laptop*/
+@media screen and (min-width: 992px) {
+
+    .section {
+        column-count: 2;
+    }
+
+    .page-container {
+        width: 1000px;
+        margin: 60px auto;
+
+    }
+
+    button {
+        margin-left: 875px;
+
+    }
+
+}

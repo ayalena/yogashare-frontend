@@ -1,0 +1,10 @@
+.form-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-button {
+    margin-left: 475px;
+}
