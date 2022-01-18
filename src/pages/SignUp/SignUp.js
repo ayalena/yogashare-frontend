@@ -1,8 +1,8 @@
-import React from "react";
 import React, {useEffect, useState} from "react";
 import './SignUp.css';
 import {Link, useHistory} from "react-router-dom";
 import axios from "axios";
+
 import PageHeader from "../../components/PageHeader/PageHeader";
 import logo from "../../assets/ohm.png"
 import Footer from "../../components/Footer/Footer";
@@ -83,51 +83,6 @@ function SignUp() {
                     <div className="form-container">
                         <p>Please register using this form:</p>
 
-                        {/*<div>*/}
-                        {/*    E-mail:*/}
-                        {/*    <input*/}
-                        {/*        type="text"*/}
-                        {/*        id="email"*/}
-                        {/*        {...register("email", {*/}
-                        {/*            required: {*/}
-                        {/*                value: true,*/}
-                        {/*                message: "Please fill in your email"*/}
-                        {/*            },*/}
-                        {/*        })}*/}
-                        {/*    />*/}
-                        {/*    {errors.email && <p>{errors.email.message}</p>}*/}
-                        {/*</div>*/}
-
-                        {/*<div>*/}
-                        {/*    Password:*/}
-                        {/*    <input*/}
-                        {/*        type="text"*/}
-                        {/*        id="password"*/}
-                        {/*        {...register("password", {*/}
-                        {/*            required: {*/}
-                        {/*                value: true,*/}
-                        {/*                message: "Please fill in your password"*/}
-                        {/*            },*/}
-                        {/*        })}*/}
-                        {/*    />*/}
-                        {/*    {errors.password && <p>{errors.password.message}</p>}*/}
-                        {/*</div>*/}
-
-                        {/*<div>*/}
-                        {/*    Username:*/}
-                        {/*    <input*/}
-                        {/*        type="text"*/}
-                        {/*        id="username"*/}
-                        {/*        {...register("username", {*/}
-                        {/*            required: {*/}
-                        {/*                value: true,*/}
-                        {/*                message: "Please fill in your username"*/}
-                        {/*            },*/}
-                        {/*        })}*/}
-                        {/*    />*/}
-                        {/*    {errors.username && <p>{errors.username.message}</p>}*/}
-                        {/*</div>*/}
-
                         <div>
                             <label htmlFor="email"> E-mail: </label>
                             <input
@@ -172,6 +127,7 @@ function SignUp() {
                             Register
                         </button>
                         {error && <p className="error">Username or e-mail already in use</p>}
+
                         <p>If you already have an account, you can log in <Link to="/signin">here</Link></p>
 
                     </div>

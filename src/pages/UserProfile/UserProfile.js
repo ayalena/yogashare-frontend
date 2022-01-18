@@ -1,4 +1,4 @@
-import React, {useContext, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import './UserProfile.css';
 import {Link, useHistory} from "react-router-dom";
 import logo from "../../assets/ohm.png";
@@ -9,7 +9,7 @@ import axios from "axios";
 import {useParams} from "react-router-dom";
 
 function UserProfile() {
-    const { id } = useParams();
+    // const { id } = useParams();
 
     const history = useHistory()
     const {user, logOut} = useContext(AuthContext)
@@ -57,9 +57,8 @@ function UserProfile() {
 
     return (
         <>
-        <p>Page for user profile {id}</p>
             <PageHeader icon={logo} title="Profile Page"/>
-
+            {/*<p>Page for user profile {id}</p>*/}
             <div className="profile-container">
                 <section>
                     <h2>Info</h2>

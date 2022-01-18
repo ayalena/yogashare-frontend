@@ -12,6 +12,9 @@ function SignIn() {
     const [passwordValue, setPasswordValue] = useState('');
     const [error, toggleError] = useState(false);
 
+    const { isAuth } = useContext(AuthContext);
+
+
     const {logIn} = useContext(AuthContext);
     const history = useHistory();
     const source = axios.CancelToken.source();
@@ -39,7 +42,7 @@ function SignIn() {
             //pass token to login function from context
             logIn(result.data.accessToken);
             //push to profile page
-            history.push("/userprofilepage");
+            history.push("/userprofile");
         } catch (e) {
             console.error(e);
             toggleError(true);
@@ -62,7 +65,7 @@ function SignIn() {
     //         //pass token to login function from context
     //         logIn(result.data.accessToken);
     //         //push to profile page
-    //         history.push("/userprofilepage");
+    //         history.push("/userprofile");
     //     } catch (e) {
     //         console.error(e);
     //         toggleError(true);
@@ -75,7 +78,7 @@ function SignIn() {
             <PageHeader icon={logo} title="Login"/>
             <form onSubmit={handleSubmit}>
                 <div className="form-container">
-                    <p>Please fill in your details below to log in</p>
+                    <p>To watch our media content, please log in!</p>
 
                     <div>
                         <label htmlFor="username"> Username: </label>

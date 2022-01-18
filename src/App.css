@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+/*phones*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+
+}
+
+body {
+    font-family: 'Muli', 'Arial', sans-serif;
+    background-color: #C9ECE7;
+    line-height: 1.5;
+    color: #dbfff9;
+}
+
+p {
+    font-family: 'Montserrat', 'Arial', sans-serif;
+}
+
+/*tablets*/
+@media screen and (min-width: 768px) {
+
+}
+
+/*small computer screens*/
+@media screen and (min-width: 992px) {
+
+}

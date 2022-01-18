@@ -15,16 +15,22 @@ function TopMenu() {
                             Home
                         </li>
                     </NavLink>
+
+                    {!isAuth &&
                     <NavLink to="/signup" activeClassName="active-link">
                         <li>
                             Register
                         </li>
                     </NavLink>
+                    }
+
+                    {!isAuth &&
                     <NavLink to="/signin" activeClassName="active-link">
                         <li>
                             Login
                         </li>
                     </NavLink>
+                    }
 
                     {isAuth &&
                     <NavLink to="/userprofile" activeClassName="active-link">
@@ -35,7 +41,7 @@ function TopMenu() {
                     }
 
                     {!isAuth &&
-                    <NavLink to="/signup" activeClassName="active-link">
+                    <NavLink to="/signin" activeClassName="active-link">
                         <li>
                             Media
                         </li>

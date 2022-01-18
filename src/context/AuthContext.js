@@ -106,7 +106,7 @@ function AuthContextProvider ({ children }) {
         } catch (e) {
             console.error(e)
         }
-        history.push("/userprofilepage")
+        history.push("/userprofile")
         console.log("User is logged in")
 
     }
