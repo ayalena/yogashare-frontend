@@ -1,15 +1,25 @@
 import React from "react";
 import './Home.css';
-import { Link } from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
+import PageHeader from "../../components/PageHeader/PageHeader";
+import logo from '../../assets/ohm.png';
+import Footer from "../../components/Footer/Footer";
+
 
 function Home() {
+    const history = useHistory();
 
+    function handleClick() {
+        history.push("/media");
+    }
     return (
         <>
+            <PageHeader icon={logo} title="Welcome to YogaShare!"/>
             <div className="page-container">
                 <section className="section">
                     <p>
-                        This is the homepage of YogaShare
+                        Welcome to YogaShare! On this page you can watch video's and listen to audio's posted by
+                        certified yoga teachers.
                     </p>
                     <p>
                         Ab aliquid amet animi aperiam assumenda, atque autem dolorum ducimus et excepturi ipsa magnam
@@ -52,8 +62,18 @@ function Home() {
 
                     <p>To register, click  <Link to="/signup">here</Link></p>
                     <p>To login, click  <Link to="/signin">here</Link></p>
+
+                    <button
+                        className="round-button"
+                        type="button"
+                        onClick={handleClick}
+                    >
+                        WATCH NOW!
+                    </button>
                 </section>
             </div>
+            <Footer/>
+
         </>
     );
 }
