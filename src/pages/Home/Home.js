@@ -1,5 +1,6 @@
 import React from "react";
 import './Home.css';
+import { Link } from 'react-router-dom';
 
 function Home() {
 
@@ -48,6 +49,9 @@ function Home() {
                         quos rem sapiente sequi
                         similique sint vero?
                     </p>
+
+                    <p>To register, click  <Link to="/signup">here</Link></p>
+                    <p>To login, click  <Link to="/signin">here</Link></p>
                 </section>
             </div>
         </>
