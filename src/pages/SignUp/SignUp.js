@@ -6,7 +6,19 @@ function SignUp() {
     return (
         <>
             <div className="form-container">
-                <p>To watch videos and other contents, please register!</p>
+                <h2>To watch videos and other contents, please register!</h2>
+
+                <form>
+                    <input
+                        type="text"
+                        placeholder="Here will be a register form"
+                        name="message"
+                    />
+                </form>
+
+                <button type="submit">
+                    Register
+                </button>
             </div>
         </>
     );

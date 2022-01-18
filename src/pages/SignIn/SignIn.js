@@ -5,7 +5,21 @@ function SignIn() {
 
     return (
         <>
-        <p>Page to log in</p>
+            <div className="form-container">
+                <h2>To watch videos and other contents, please log in!</h2>
+
+                <form>
+                    <input
+                        type="text"
+                        placeholder="Here will be a login form"
+                        name="message"
+                    />
+                </form>
+
+                <button type="submit">
+                    Register
+                </button>
+            </div>
         </>
     );
 }
