@@ -1,25 +1,118 @@
-import React from "react";
+import React, {useContext, useEffect, useState} from "react";
 import './SignIn.css';
+import {AuthContext} from "../../context/AuthContext";
+import {Link, useHistory} from "react-router-dom";
+import axios from "axios";
+import PageHeader from "../../components/PageHeader/PageHeader";
+import logo from "../../assets/ohm.png";
+import Footer from "../../components/Footer/Footer";
 
 function SignIn() {
+    const [usernameValue, setUsernameValue] = useState('');
+    const [passwordValue, setPasswordValue] = useState('');
+    const [error, toggleError] = useState(false);
+
+    const {logIn} = useContext(AuthContext);
+    const history = useHistory();
+    const source = axios.CancelToken.source();
+
+    // if page gets unmounted, abort request
+    useEffect(() => {
+        return function cleanup() {
+            source.cancel();
+        }
+    }, []);
+
+    //custom server
+    async function handleSubmit(e) {
+        e.preventDefault();
+        toggleError(false);
+        try {
+            const result = await axios.post("http://localhost:8080/api/auth/signin", {
+                username: usernameValue,
+                password: passwordValue,
+            }, {
+                cancelToken: source.token,
+            })
+            //display result
+            console.log(result.data);
+            //pass token to login function from context
+            logIn(result.data.accessToken);
+            //push to profile page
+            history.push("/userprofilepage");
+        } catch (e) {
+            console.error(e);
+            toggleError(true);
+        }
+    }
+
+    //fake server
+    // async function handleSubmit(e) {
+    //     e.preventDefault();
+    //     toggleError(false);
+    //     try {
+    //         const result = await axios.post('http://localhost:3000/login', {
+    //             email: emailValue,
+    //             password: passwordValue,
+    //         }, {
+    //             cancelToken: source.token,
+    //         })
+    //         //display result
+    //         console.log(result.data);
+    //         //pass token to login function from context
+    //         logIn(result.data.accessToken);
+    //         //push to profile page
+    //         history.push("/userprofilepage");
+    //     } catch (e) {
+    //         console.error(e);
+    //         toggleError(true);
+    //     }
+    // }
+
 
     return (
         <>
-            <div className="form-container">
-                <h2>To watch videos and other contents, please log in!</h2>
+            <PageHeader icon={logo} title="Login"/>
+            <form onSubmit={handleSubmit}>
+                <div className="form-container">
+                    <p>Please fill in your details below to log in</p>
 
-                <form>
-                    <input
-                        type="text"
-                        placeholder="Here will be a login form"
-                        name="message"
-                    />
-                </form>
+                    <div>
+                        <label htmlFor="username"> Username: </label>
+                        <input
+                            type="text"
+                            placeholder=""
+                            name="username"
+                            value={usernameValue}
+                            onChange={(e) => setUsernameValue(e.target.value)}
+                        />
+                    </div>
 
-                <button type="submit">
-                    Register
-                </button>
-            </div>
+                    <div>
+                        <label htmlFor="password"> Wachtwoord: </label>
+                        <input
+                            type="text"
+                            placeholder=""
+                            name="password"
+                            value={passwordValue}
+                            onChange={(e) => setPasswordValue(e.target.value)}
+                        />
+                    </div>
+
+                    {error && <p className="error">Username or password is wrong</p>}
+
+                    <button
+                        type="submit"
+                        className="login-button"
+
+                    >
+                        Log in
+                    </button>
+
+                    <p>If you don't have an account yet, you can register <Link to="/signup">here</Link></p>
+                </div>
+            </form>
+            <Footer/>
         </>
     );
 }
