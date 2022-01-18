@@ -4,7 +4,7 @@ import {NavLink} from "react-router-dom";
 import {AuthContext} from "../../context/AuthContext";
 
 function TopMenu() {
-    const { isAuth, logOut } = useContext(AuthContext);
+    const { isAuth, logOut, isAdmin } = useContext(AuthContext);
 
     return (
         <>
@@ -36,6 +36,14 @@ function TopMenu() {
                     <NavLink to="/userprofile" activeClassName="active-link">
                         <li>
                             Profile
+                        </li>
+                    </NavLink>
+                    }
+
+                    {isAdmin &&
+                    <NavLink to="/fileupload" activeClassName="active-link">
+                        <li>
+                            Upload File
                         </li>
                     </NavLink>
                     }

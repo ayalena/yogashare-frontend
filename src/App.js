@@ -13,9 +13,10 @@ import SignUp from "./pages/SignUp/SignUp";
 import UserProfile from "./pages/UserProfile/UserProfile";
 import SignIn from "./pages/SignIn/SignIn";
 import Media from "./pages/Media/Media";
+import FileUploadPage from "./pages/FileUploadPage/FileUploadPage";
 
 function App() {
-    const {isAuth} = useContext(AuthContext);
+    const {isAuth, isAdmin} = useContext(AuthContext);
 
     return (
       <Router>
@@ -38,6 +39,9 @@ function App() {
               </Route>
               <Route path="/userprofile/:id">
                   <UserProfile/>
+              </Route>
+              <Route path="/fileupload">
+                  {isAdmin ? <FileUploadPage/> : <Redirect to="/"/>}
               </Route>
           </Switch>
       </Router>

@@ -1,0 +1,23 @@
+.dropzone {
+    display: flex;
+    justify-content: center;
+}
+
+.file-upload-text {
+    display: flex;
+    background-color: white;
+    border: 1px solid black;
+    margin: 5px;
+    padding-left: 5px;
+}
+
+.file-upload-icon {
+    margin: 2px;
+}
+
+.selected-file {
+    background-color: white;
+    border: 1px solid black;
+    margin: 5px;
+    padding-left: 5px;
+}
