@@ -4,6 +4,8 @@ import {
     Switch,
     Route,
 } from 'react-router-dom';
+import axios from 'axios';
+
 import TopMenu from "./components/TopMenu/TopMenu";
 import Home from "./pages/Home/Home";
 import SignUp from "./pages/SignUp/SignUp";
