@@ -12,7 +12,9 @@ function UserProfile() {
     // const { id } = useParams();
 
     const history = useHistory()
-    const {user, logOut} = useContext(AuthContext)
+    const {user, logOut, isAdmin} = useContext(AuthContext)
+
+
 
     const [profileData, setProfileData] = useState({});
 
@@ -73,15 +75,21 @@ function UserProfile() {
                 >Update info
                 </button>
 
-                {Object.keys(profileData).length > 0 &&
-                <section>
-                    <h2>Strikt geheime profiel-content</h2>
-                    <h3>{profileData.title}</h3>
-                    <p>{profileData.content}</p>
-                </section>
+                {/*{Object.keys(profileData).length > 0 &&*/}
+                {/*<section>*/}
+                {/*    <h2>Strikt geheime profiel-content</h2>*/}
+                {/*    <h3>{profileData.title}</h3>*/}
+                {/*    <p>{profileData.content}</p>*/}
+                {/*</section>*/}
+                {/*}*/}
+
+                {!isAdmin &&
+                <p>To watch media content, click <Link to="/media"> here! </Link></p>
+                }
+                {isAdmin &&
+                <p>To post a video, click <Link to="/fileupload"> here! </Link></p>
                 }
 
-                <p>To watch media content, click <Link to="/media"> here! </Link></p>
 
                 <button
                     type="button"

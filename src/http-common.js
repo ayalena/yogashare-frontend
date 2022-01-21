@@ -1,4 +1,4 @@
-// provides functions to save File and get Files using Axios. initializes Axios with HTTP base Url and headers
+// provides functions to create File
 
 import axios from "axios";
 

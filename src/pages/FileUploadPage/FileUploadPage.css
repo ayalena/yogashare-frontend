@@ -1,7 +1,12 @@
-.file-upload-container {
+.upload-form-container {
     display: flex;
     justify-content: space-evenly;
 }
+
+/*.file-upload-container {*/
+/*    display: flex;*/
+/*    justify-content: space-evenly;*/
+/*}*/
 
 .dropzone {
     display: flex;

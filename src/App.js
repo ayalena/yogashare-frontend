@@ -36,6 +36,7 @@ function App() {
               </Route>
               <Route path="/userprofile">
                   {isAuth ? <UserProfile/> : <Redirect to="/signin"/>}
+
               </Route>
               <Route path="/userprofile/:id">
                   <UserProfile/>

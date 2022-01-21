@@ -8,16 +8,16 @@ import logo from "../../assets/ohm.png"
 import Footer from "../../components/Footer/Footer";
 
 function SignUp() {
-// state for form
+    // state for form
     const [emailValue, setEmailValue] = useState('');
     const [passwordValue, setPasswordValue] = useState('');
     const [usernameValue, setUsernameValue] = useState('');
 
     //state for functionality
     const history = useHistory();
+
     const [error, toggleError] = useState(false)
     const [loading, toggleLoading] = useState(false);
-    // const [error, setError] = useState(false)
 
     //cancel token for network request
     const source = axios.CancelToken.source();
@@ -36,9 +36,9 @@ function SignUp() {
         toggleLoading(true);
         try {
             const result = await axios.post("http://localhost:8080/api/auth/signup", {
-                email: emailValue,
                 username: usernameValue,
                 password: passwordValue,
+                email: emailValue,
             }, {
                 cancelToken: source.token,
             })

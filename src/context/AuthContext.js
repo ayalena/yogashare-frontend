@@ -40,7 +40,7 @@ function AuthContextProvider ({ children }) {
                             }
                         })
                     // get user authentication
-                    const userRole = (result.data.roles[0].name)
+                    const userRole = (result.data.authorisations[0].name)
                     // if user has admin authentications, setIsAdmin to true
                     if (userRole === "ROLE_ADMIN") {
                         setIsAdmin(true)
@@ -52,7 +52,7 @@ function AuthContextProvider ({ children }) {
                             id: result.data.id,
                             email: result.data.email,
                             username: result.data.username,
-                            role: result.data.roles[0].name,
+                            authority: result.data.authorisations[0].name,
                         },
                         status: "done"
                     })
@@ -65,7 +65,7 @@ function AuthContextProvider ({ children }) {
                 fetchUserDetails()
             }
         }
-        // No:
+        //If not:
         else {
             toggleIsAuth({
                 ...isAuth,
@@ -89,7 +89,7 @@ function AuthContextProvider ({ children }) {
                         Authorization: `Bearer ${token}`
                     }
                 })
-
+            console.log(result.data)
             toggleIsAuth({
                 ...isAuth,
                 isAuth: true,
@@ -100,14 +100,14 @@ function AuthContextProvider ({ children }) {
                 },
                 status: "done"
             })
-            if (result.data.roles[0].name === "ROLE_ADMIN") {
+            if (result.data.authorities[0].name === "ROLE_ADMIN") {
                 setIsAdmin(true)
             }
         } catch (e) {
             console.error(e)
         }
         history.push("/userprofile")
-        console.log("User is logged in")
+        console.log("User logged in")
 
     }
 
@@ -128,8 +128,6 @@ function AuthContextProvider ({ children }) {
     }
 
     const data = {
-        // isAuth: isAuth.isAuth,
-        // user: isAuth.user,
         ...isAuth,
         logIn,
         logOut,

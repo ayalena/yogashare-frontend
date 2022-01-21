@@ -6,7 +6,7 @@ function PageHeader({icon, title}) {
         <>
             <div className="title-container">
                 <img src={icon} alt={title}/>
-                <h1 className="h1-pageheader">{title}</h1>
+                <h1 className="pageheader">{title}</h1>
             </div>
         </>
     );

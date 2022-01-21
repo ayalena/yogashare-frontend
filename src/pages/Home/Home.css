@@ -52,9 +52,9 @@ p {
         column-count: 2;
     }
 
-    button {
-        margin-left: 475px;
-    }
+    /*button {*/
+    /*    margin-left: 475px;*/
+    /*}*/
 }
 
 /*laptop*/
@@ -70,9 +70,9 @@ p {
 
     }
 
-    button {
-        margin-left: 875px;
+    /*button {*/
+    /*    margin-left: 875px;*/
 
-    }
+    /*}*/
 
 }

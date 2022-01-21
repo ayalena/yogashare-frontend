@@ -12,9 +12,6 @@ function SignIn() {
     const [passwordValue, setPasswordValue] = useState('');
     const [error, toggleError] = useState(false);
 
-    const { isAuth } = useContext(AuthContext);
-
-
     const {logIn} = useContext(AuthContext);
     const history = useHistory();
     const source = axios.CancelToken.source();
@@ -41,7 +38,7 @@ function SignIn() {
             console.log(result.data);
             //pass token to login function from context
             logIn(result.data.accessToken);
-            //push to profile page
+            //push to profile page after
             history.push("/userprofile");
         } catch (e) {
             console.error(e);
