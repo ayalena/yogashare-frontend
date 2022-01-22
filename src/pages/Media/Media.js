@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import './Media.css';
 import axios from "axios";
 import {useForm} from "react-hook-form";
@@ -6,9 +6,12 @@ import PlayFile from "../../components/PlayFile/PlayFile";
 import PageHeader from "../../components/PageHeader/PageHeader";
 import logo from "../../assets/ohm.png"
 import Footer from "../../components/Footer/Footer";
+import {AuthContext} from "../../context/AuthContext";
 
 function Media() {
     const {handleSubmit} = useForm({mode: 'onChange'})
+    const {isAdmin } = useContext(AuthContext);
+
 
     const [error, toggleError] = useState(false)
     const [loading, toggleLoading] = useState(false)
@@ -52,7 +55,6 @@ function Media() {
         }
     }, [])
 
-
     async function downloadFile() {
         const fileIdAndName = currentFileInfo.split(" ")
         await axios(`http://localhost:8080/api/file/${fileIdAndName[0]}`, {
@@ -73,6 +75,27 @@ function Media() {
             })
             .catch((error) => console.log(error));
     }
+
+    async function deleteFile() {
+        const fileIdAndName = currentFileInfo.split(" ")
+        const answer = window.confirm("Are you sure you want to delete this video?")
+        if (answer) {
+            try {
+                const result = await axios.delete(`http://localhost:8080/api/file/${fileIdAndName[0]}`, {
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${token}`
+                    }
+                })
+                if (result.status === 200) {
+                    window.location.reload(true)
+                }
+            } catch (e) {
+                console.error(e)
+            }
+        }
+    }
+
 
     return (
         <>
@@ -128,9 +151,25 @@ function Media() {
                             {currentFileInfo.length > 0 &&
                             <button
                                 className="download-button"
-                                onClick={() => downloadFile()}>Download</button>
+                                onClick={() => downloadFile()}>Download
+                            </button>
                             }
                         </div>
+
+                        {isAdmin &&
+                        <div className="delete-container">
+                            {currentFileInfo.length > 0 &&
+                            <p>If you want to delete the video, please click the button below</p>
+                            }
+
+                            {currentFileInfo.length > 0 &&
+                            <button
+                                className="delete-button"
+                                onClick={() => deleteFile()}>Delete
+                            </button>
+                            }
+                        </div>
+                        }
                     </div> : <p>Loading...</p>}
             </div>
             <Footer/>

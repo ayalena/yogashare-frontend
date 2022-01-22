@@ -40,7 +40,7 @@ function AuthContextProvider ({ children }) {
                             }
                         })
                     // get user authentication
-                    const userRole = (result.data.authorisations[0].name)
+                    const userRole = (result.data.roles[0].name)
                     // if user has admin authentications, setIsAdmin to true
                     if (userRole === "ROLE_ADMIN") {
                         setIsAdmin(true)
@@ -52,7 +52,7 @@ function AuthContextProvider ({ children }) {
                             id: result.data.id,
                             email: result.data.email,
                             username: result.data.username,
-                            authority: result.data.authorisations[0].name,
+                            role: result.data.roles[0].name,
                         },
                         status: "done"
                     })
@@ -100,7 +100,7 @@ function AuthContextProvider ({ children }) {
                 },
                 status: "done"
             })
-            if (result.data.authorities[0].name === "ROLE_ADMIN") {
+            if (result.data.roles[0].name === "ROLE_ADMIN") {
                 setIsAdmin(true)
             }
         } catch (e) {

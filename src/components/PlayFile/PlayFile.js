@@ -2,7 +2,7 @@ import ReactPlayer from "react-player/lazy";
 import axios from "axios";
 import {useEffect, useState} from "react";
 
-function PlayFile( { fileId }) {
+function PlayFile({ fileId }) {
     const [urlLink, setUrlLink] = useState(null)
     const [isMounted, setIsMounted] = useState(false)
 
