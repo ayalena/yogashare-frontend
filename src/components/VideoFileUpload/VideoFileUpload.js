@@ -5,6 +5,7 @@ import {uploadFile} from "../../services/FileUploadService";
 import {useHistory} from "react-router-dom";
 import videoUpload from "../../assets/videofile.png";
 import {MdOutlineFileUpload} from "react-icons/md"
+import Button from "../Button/Button";
 
 function VideoFileUpload() {
     const [selectedFiles, setSelectedFiles] = useState(undefined);
@@ -63,13 +64,14 @@ function VideoFileUpload() {
                             </div>
 
                             <aside className="selected-file-wrapper">
-                                <button
-                                    className="file-upload-button"
+                                <Button
+                                    className="upload-button"
                                     disabled={!selectedFiles}
                                     onClick={() => upload()}
+                                    text="Upload"
                                 >
-                                    Upload
-                                </button>
+
+                                </Button>
                             </aside>
                     </section>
                 )}
@@ -81,12 +83,12 @@ function VideoFileUpload() {
                 </div>
 
                 {progress === 100 &&
-                <button
+                <Button
                     className="media-button"
                     onClick={() => history.push("/media")}
+                    text="To Media"
                 >
-                    Click here to go to the media page
-                </button>
+                </Button>
                 }
             </div>
 

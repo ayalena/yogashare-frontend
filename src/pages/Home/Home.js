@@ -4,6 +4,7 @@ import {Link, useHistory} from 'react-router-dom';
 import PageHeader from "../../components/PageHeader/PageHeader";
 import logo from '../../assets/ohm.png';
 import Footer from "../../components/Footer/Footer";
+import Button from "../../components/Button/Button";
 
 
 function Home() {
@@ -60,16 +61,16 @@ function Home() {
                         similique sint vero?
                     </p>
 
-                    <p>To register, click  <Link to="/signup">here</Link></p>
-                    <p>To login, click  <Link to="/signin">here</Link></p>
+                    <p>To register, click  <Link to="/signup" className="link">here</Link></p>
+                    <p>To login, click  <Link to="/signin" className="link">here</Link></p>
 
-                    <button
+                    <Button
                         className="round-button"
                         type="button"
                         onClick={handleClick}
+                        text="WATCH NOW!"
                     >
-                        WATCH NOW!
-                    </button>
+                    </Button>
                 </section>
             </div>
             <Footer/>

@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 /*phone*/
 body {
@@ -6,12 +6,6 @@ body {
     background-color: #f2fffc;
     line-height: 1.5;
     color: #8e0000;
-}
-
-p {
-    font-family: Arial, sans-serif;
-    margin: 16px 0;
-
 }
 
 .section {
@@ -25,24 +19,21 @@ p {
     text-align: center;
 }
 
-.round-button {
-    display: inline-block;
-    border-radius: 50%;
-    background-color: #8e0000;
-    width: 60px;
-    height: 60px;
-    color: #e6e6ee;
-    transform: rotate(12deg);
-    /*margin-left: 440px;*/
-    margin-top: 15px;
+/*.link::after {*/
+/*    display: block;*/
+/*    content: "";*/
+/*    width: 0%;*/
+/*    font-size: larger;*/
+/*    height: 2px;*/
+/*    background-color: #8e0000;*/
+/*    transition: width .45s ease-in-out;*/
+/*}*/
 
-}
+/*.link:hover::after {*/
+/*    width: 100%;*/
+/*}*/
 
-.round-button:hover {
-    width: 65px;
-    height: 65px;
-    transform: rotate(15deg);
-}
+
 
 
 /*tablet*/

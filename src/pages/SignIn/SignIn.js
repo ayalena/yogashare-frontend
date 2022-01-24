@@ -6,6 +6,7 @@ import axios from "axios";
 import PageHeader from "../../components/PageHeader/PageHeader";
 import logo from "../../assets/ohm.png";
 import Footer from "../../components/Footer/Footer";
+import Button from "../../components/Button/Button";
 
 function SignIn() {
     const [usernameValue, setUsernameValue] = useState('');
@@ -77,6 +78,7 @@ function SignIn() {
                 <div className="form-container">
                     <p>To watch our media content, please log in!</p>
 
+                    <div className="input-container">
                     <div>
                         <label htmlFor="username"> Username: </label>
                         <input
@@ -98,16 +100,15 @@ function SignIn() {
                             onChange={(e) => setPasswordValue(e.target.value)}
                         />
                     </div>
+                        {error && <p className="error">Username or password is wrong</p>}
+                    </div>
 
-                    {error && <p className="error">Username or password is wrong</p>}
-
-                    <button
+                    <Button
                         type="submit"
-                        className="login-button"
-
+                        className="round-button"
+                        text="Log in!"
                     >
-                        Log in
-                    </button>
+                    </Button>
 
                     <p>If you don't have an account yet, you can register <Link to="/signup">here</Link></p>
                 </div>

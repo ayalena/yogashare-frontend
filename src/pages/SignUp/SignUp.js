@@ -6,6 +6,7 @@ import axios from "axios";
 import PageHeader from "../../components/PageHeader/PageHeader";
 import logo from "../../assets/ohm.png"
 import Footer from "../../components/Footer/Footer";
+import Button from "../../components/Button/Button";
 
 function SignUp() {
     // state for form
@@ -119,13 +120,14 @@ function SignUp() {
 
                         </div>
 
-                        <button
+                        <Button
                             type="submit"
-                            className="register-button"
+                            className="round-button"
                             disabled={loading}
+                            text="Register!"
                         >
                             Register
-                        </button>
+                        </Button>
                         {error && <p className="error">Username or e-mail already in use</p>}
 
                         <p>If you already have an account, you can log in <Link to="/signin">here</Link></p>

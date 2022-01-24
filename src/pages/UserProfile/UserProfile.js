@@ -7,6 +7,7 @@ import Footer from "../../components/Footer/Footer";
 import {AuthContext} from "../../context/AuthContext";
 import axios from "axios";
 import {useParams} from "react-router-dom";
+import Button from "../../components/Button/Button";
 
 function UserProfile() {
     // const { id } = useParams();
@@ -68,12 +69,13 @@ function UserProfile() {
                     <p><strong>Email:</strong> {user.email}</p>
                 </section>
 
-                <button
+                <Button
                     className="update-button"
                     type="button"
                     onClick={() => handleClick()}
-                >Update info
-                </button>
+                    text="Update info"
+                >
+                </Button>
 
                 {/*{Object.keys(profileData).length > 0 &&*/}
                 {/*<section>*/}
@@ -90,14 +92,13 @@ function UserProfile() {
                 <p>To post a video, click <Link to="/fileupload"> here! </Link></p>
                 }
 
-
-                <button
+                <Button
                     type="button"
                     onClick={logOut}
                     className="round-button"
+                    text="Log out"
                 >
-                    Log out
-                </button>
+                </Button>
             </div>
             <Footer/>
         </>

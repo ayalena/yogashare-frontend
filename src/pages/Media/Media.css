@@ -15,9 +15,11 @@
 .download-container {
     display: flex;
     flex-direction: column;
+    align-items: center;
 
 }
 
 .video {
     margin: 20px;
 }
+

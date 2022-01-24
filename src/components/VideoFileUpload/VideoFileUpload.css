@@ -1,6 +1,24 @@
+.file-upload-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+}
+
 .dropzone {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    border: 2px dashed black;
+    background-color: white;
+    cursor: pointer;
+    margin: 20px;
+    width: 500px;
+    height: 330px;
+    border-radius: 5px;
+
 }
 
 .file-upload-text {
@@ -25,4 +43,6 @@
 .video-upload-logo {
     width: 155px;
     height: 200px;
+    margin: 15px;
 }
+

@@ -32,11 +32,10 @@ function App() {
                   <SignIn />
               </Route>
               <Route path="/media">
-                  <Media/>
+                  {isAuth ? <Media/> : <Redirect to="/signin"/>}
               </Route>
               <Route path="/userprofile">
                   {isAuth ? <UserProfile/> : <Redirect to="/signin"/>}
-
               </Route>
               <Route path="/userprofile/:id">
                   <UserProfile/>

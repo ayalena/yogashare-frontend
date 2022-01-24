@@ -64,7 +64,7 @@ function TopMenu() {
                     }
 
                     {isAuth &&
-                    <NavLink to="/" activeClassName="active-link" onClick={logOut}>
+                    <NavLink to="/" onClick={logOut}>
                         <li>
                             Log Out
                         </li>

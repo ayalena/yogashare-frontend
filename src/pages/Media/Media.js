@@ -7,6 +7,7 @@ import PageHeader from "../../components/PageHeader/PageHeader";
 import logo from "../../assets/ohm.png"
 import Footer from "../../components/Footer/Footer";
 import {AuthContext} from "../../context/AuthContext";
+import Button from "../../components/Button/Button";
 
 function Media() {
     const {handleSubmit} = useForm({mode: 'onChange'})
@@ -144,15 +145,18 @@ function Media() {
                         </div>
 
                         <div className="download-container">
+
                             {currentFileInfo.length > 0 &&
                             <p>If the video does not load, download it using the download button below</p>
                             }
 
                             {currentFileInfo.length > 0 &&
-                            <button
+                            <Button
                                 className="download-button"
-                                onClick={() => downloadFile()}>Download
-                            </button>
+                                onClick={() => downloadFile()}
+                                text="Download!"
+                            >
+                            </Button>
                             }
                         </div>
 
@@ -163,10 +167,13 @@ function Media() {
                             }
 
                             {currentFileInfo.length > 0 &&
-                            <button
+                            <Button
                                 className="delete-button"
-                                onClick={() => deleteFile()}>Delete
-                            </button>
+                                onClick={() => deleteFile()}
+                                text="Delete"
+                            >
+
+                            </Button>
                             }
                         </div>
                         }
