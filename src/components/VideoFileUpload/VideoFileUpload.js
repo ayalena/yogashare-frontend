@@ -56,9 +56,9 @@ function VideoFileUpload() {
                                     {selectedFiles && selectedFiles[0].name}
                                 </div>
                             ) : (
-                                <div className="video-upload-text"> Drag and drop file here, <br/>
+                                <div className="video-upload-text"> Drag and drop <br/>
                                     <MdOutlineFileUpload className="video-upload-icon"/> or click to upload file
-                                    <p className="file-upload-small-text">(Only *.mp4 videos will be accepted, with a maximum of 150 000 kilobytes)</p>
+                                    <p className="file-upload-small-text">(Only *.mp4 videos with a maximum of 150MB will be accepted)</p>
                                 </div>
                             )}
                             </div>

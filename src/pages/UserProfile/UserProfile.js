@@ -11,11 +11,8 @@ import Button from "../../components/Button/Button";
 
 function UserProfile() {
     // const { id } = useParams();
-
     const history = useHistory()
     const {user, logOut, isAdmin} = useContext(AuthContext)
-
-
 
     const [profileData, setProfileData] = useState({});
 
@@ -86,10 +83,10 @@ function UserProfile() {
                 {/*}*/}
 
                 {!isAdmin &&
-                <p>To watch media content, click <Link to="/media"> here! </Link></p>
+                <p>To watch media content, click <Link to="/media"> <b> here! </b> </Link></p>
                 }
                 {isAdmin &&
-                <p>To post a video, click <Link to="/fileupload"> here! </Link></p>
+                <p>To post a video, click <Link to="/fileupload"> <b> here! </b> </Link></p>
                 }
 
                 <Button

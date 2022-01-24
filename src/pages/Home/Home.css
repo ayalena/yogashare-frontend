@@ -19,19 +19,19 @@ body {
     text-align: center;
 }
 
-/*.link::after {*/
-/*    display: block;*/
-/*    content: "";*/
-/*    width: 0%;*/
-/*    font-size: larger;*/
-/*    height: 2px;*/
-/*    background-color: #8e0000;*/
-/*    transition: width .45s ease-in-out;*/
-/*}*/
+b::after {
+    display: block;
+    content: "";
+    width: 0%;
+    font-size: larger;
+    height: 2px;
+    background-color: #8e0000;
+    transition: width .45s ease-in-out;
+}
 
-/*.link:hover::after {*/
-/*    width: 100%;*/
-/*}*/
+b:hover::after {
+    width: 100%;
+}
 
 
 
