@@ -84,6 +84,7 @@ function SignUp() {
                     <div className="form-container">
                         <p>Please register using this form:</p>
 
+                        <div className="input-container">
                         <div>
                             <label htmlFor="email"> E-mail: </label>
                             <input
@@ -119,7 +120,7 @@ function SignUp() {
                             {error && <p className="error"> This username is already in use.</p>}
 
                         </div>
-
+                    </div>
                         <Button
                             type="submit"
                             className="round-button"

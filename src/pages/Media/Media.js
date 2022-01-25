@@ -110,7 +110,7 @@ function Media() {
                     <div className="video-container">
 
                         {fileInfoForDownload.length > 0 &&
-                        <p className="video-paragraph">Choose a video from your preferred teacher:</p>
+                        <p className="video-text">Choose a video from your preferred teacher:</p>
                         }
 
                         <div>

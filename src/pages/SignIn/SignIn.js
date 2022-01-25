@@ -40,7 +40,7 @@ function SignIn() {
             //pass token to login function from context
             logIn(result.data.accessToken);
             //push to profile page after
-            history.push("/userprofile");
+            history.push("/userprofilepage");
         } catch (e) {
             console.error(e);
             toggleError(true);

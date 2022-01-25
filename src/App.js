@@ -10,10 +10,11 @@ import {AuthContext} from "./context/AuthContext";
 import TopMenu from "./components/TopMenu/TopMenu";
 import Home from "./pages/Home/Home";
 import SignUp from "./pages/SignUp/SignUp";
-import UserProfile from "./pages/UserProfile/UserProfile";
+import UserProfilePage from "./pages/UserProfile/UserProfilePage";
 import SignIn from "./pages/SignIn/SignIn";
 import Media from "./pages/Media/Media";
 import FileUploadPage from "./pages/FileUploadPage/FileUploadPage";
+import AddUserInfo from "./pages/UserInfo/AddUserInfo";
 
 function App() {
     const {isAuth, isAdmin} = useContext(AuthContext);
@@ -34,14 +35,17 @@ function App() {
               <Route path="/media">
                   {isAuth ? <Media/> : <Redirect to="/signin"/>}
               </Route>
-              <Route path="/userprofile">
-                  {isAuth ? <UserProfile/> : <Redirect to="/signin"/>}
+              <Route path="/userprofilepage">
+                  {isAuth ? <UserProfilePage/> : <Redirect to="/signin"/>}
               </Route>
               <Route path="/userprofile/:id">
-                  <UserProfile/>
+                  <UserProfilePage/>
               </Route>
               <Route path="/fileupload">
                   {isAdmin ? <FileUploadPage/> : <Redirect to="/"/>}
+              </Route>
+              <Route path="/add-info">
+                  {isAuth ? <AddUserInfo/> : <Redirect to="/signin"/>}
               </Route>
           </Switch>
       </Router>

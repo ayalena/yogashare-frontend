@@ -33,7 +33,7 @@ function TopMenu() {
                     }
 
                     {isAuth &&
-                    <NavLink to="/userprofile" activeClassName="active-link">
+                    <NavLink to="/userprofilepage" activeClassName="active-link">
                         <li>
                             Profile
                         </li>
@@ -48,20 +48,11 @@ function TopMenu() {
                     </NavLink>
                     }
 
-                    {!isAuth &&
-                    <NavLink to="/signin" activeClassName="active-link">
-                        <li>
-                            Media
-                        </li>
-                    </NavLink>
-                    }
-                    {isAuth &&
                     <NavLink to="/media" activeClassName="active-link">
                         <li>
                             Media
                         </li>
                     </NavLink>
-                    }
 
                     {isAuth &&
                     <NavLink to="/" onClick={logOut}>

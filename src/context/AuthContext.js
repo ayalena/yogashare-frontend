@@ -21,7 +21,6 @@ function AuthContextProvider ({ children }) {
 
     const [isAdmin, setIsAdmin] = useState(false)
 
-
     //persist on refresh
     useEffect(() => {
         // check if there is a token is local storage
