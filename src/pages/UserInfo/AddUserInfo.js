@@ -1,5 +1,4 @@
 import React, {useContext, useEffect, useState} from "react";
-import './AddUserInfo.css';
 import {UserProfileContext} from "../../context/UserProfileContext";
 import {useHistory} from "react-router-dom";
 import axios from "axios";
@@ -8,11 +7,9 @@ import logo from "../../assets/ohm.png";
 import {useForm} from "react-hook-form";
 import Button from "../../components/Button/Button";
 
-
 function AddUserInfo() {
     const {register, handleSubmit, formState: {errors}} = useForm();
     const {setChangeData } = useContext(UserProfileContext)
-    // const [changeData, setChangeData] = useState(false)
 
     const history = useHistory()
 

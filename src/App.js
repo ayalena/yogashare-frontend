@@ -15,6 +15,7 @@ import SignIn from "./pages/SignIn/SignIn";
 import Media from "./pages/Media/Media";
 import FileUploadPage from "./pages/FileUploadPage/FileUploadPage";
 import AddUserInfo from "./pages/UserInfo/AddUserInfo";
+import UpdateUserInfo from "./pages/UserInfo/UpdateUserInfo";
 
 function App() {
     const {isAuth, isAdmin} = useContext(AuthContext);
@@ -46,6 +47,9 @@ function App() {
               </Route>
               <Route path="/add-info">
                   {isAuth ? <AddUserInfo/> : <Redirect to="/signin"/>}
+              </Route>
+              <Route path="/update-info">
+                  {isAuth ? <UpdateUserInfo/> : <Redirect to="/signin"/>}
               </Route>
           </Switch>
       </Router>

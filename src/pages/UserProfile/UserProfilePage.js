@@ -19,7 +19,6 @@ function UserProfilePage() {
     const {user, logOut, isAdmin, isAuth} = useContext(AuthContext)
 
 
-
     // const { user } = useContext(AuthContext)
 
     // const [profileData, setProfileData] = useState({
@@ -168,17 +167,30 @@ function UserProfilePage() {
             <PageHeader icon={logo} title="Profile Page"/>
             {/*<p>Page for user profile {id}</p>*/}
             <div className="profile-container">
-                {/*{loading && <span>Loading...</span>}*/}
+                {loading && <span>Loading...</span>}
 
-                <section>
-                    <h2>Info</h2>
+                <h2>Info</h2>
+                <div className="main-info">
+
                     <p><strong>Username: </strong> {user.username} </p>
                     <p><strong>Email:</strong> {user.email}</p>
-
-
-                </section>
+                </div>
 
                 <h3>Additional info:</h3>
+                <div className="extra-info">
+
+                    {userProfile &&
+                    <UserInfo
+                        // userName={user.username}
+                        userFirstName={userProfile.firstName}
+                        userLastName={userProfile.lastName}
+                        // userEmail={user.email}
+                        userAddress={userProfile.address}
+                        userCountry={userProfile.country}
+                        userAge={userProfile.age}
+                    />
+                    }
+                </div>
 
                 {/*<p><strong>First Name:</strong> {user.firstName}</p>*/}
                 {/*/!*{userProfile &&*!/*/}
@@ -194,27 +206,13 @@ function UserProfilePage() {
                 {/*/>*/}
                 {/*/!*}*!/*/}
 
-                {userProfile &&
-                <UserInfo
-                    // userName={user.username}
-                    userFirstName={userProfile.firstName}
-                    userLastName={userProfile.lastName}
-                    // userEmail={user.email}
-                    userAddress={userProfile.address}
-
-                    userCountry={userProfile.country}
-                    userAge={userProfile.age}
-
-                />
-                }
-
 
                 {!loading &&
                 <Button
                     className="update-button"
                     type="button"
                     onClick={() => handleClick()}
-                    text="Add info"
+                    text="Update info"
                 >
                 </Button>
                 }
