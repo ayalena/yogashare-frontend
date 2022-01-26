@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300;400&display=swap');
+
 button {
 
 }
@@ -11,6 +13,8 @@ button {
     color: #e6e6ee;
     transform: rotate(12deg);
     margin-top: 15px;
+    margin-right: 255px;
+    font-weight: bold;
 }
 
 .round-button:hover {
@@ -97,3 +101,4 @@ button {
     width: 205px;
     height: 35px;
 }
+

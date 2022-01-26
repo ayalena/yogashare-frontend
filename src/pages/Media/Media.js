@@ -24,7 +24,7 @@ function Media() {
     // to display video or download video
     const [currentFileInfo, setCurrentFileInfo] = useState([])
     // to select video from certain teacher
-    const fileInfoMapped = fileInfoForDownload.map(({id, name, username}) => ({id, name, username}))
+    // const fileInfoMapped = fileInfoForDownload.map(({id, name, username}) => ({id, name, username}))
 
     const token = localStorage.getItem("token")
 
@@ -44,7 +44,9 @@ function Media() {
                         Authorization: `Bearer ${token}`
                     }
                 })
-                setFileInfoForDownload(result.data)
+                setFileInfoForDownload(result.data);
+                console.log('FILES', result.data);
+                setCurrentFileInfo(result.data[0]);
             } catch (e) {
                 console.error(e)
             }
@@ -70,6 +72,8 @@ function Media() {
                 const link = document.createElement('a');
                 link.href = url;
                 // value becomes name of file
+
+                // setAttribute is JavaSscript, mag niet in React!!
                 link.setAttribute('download', `${fileIdAndName[1]}`);
                 document.body.appendChild(link);
                 link.click();
@@ -122,7 +126,7 @@ function Media() {
                                     className="select-box"
                                     onChange={e => setCurrentFileInfo(e.target.value)}>
                                     <option disabled>Video file name: Uploaded by user:</option>
-                                    {fileInfoMapped.map(fileId => {
+                                    {fileInfoForDownload.map(fileId => {
                                         return <option
                                             key={fileId.id}
                                             value={fileId.id.name}
@@ -136,12 +140,10 @@ function Media() {
                         </div>
 
                         <div className="video">
-                            {currentFileInfo.length > 0 &&
+
                             <PlayFile
-                                key={currentFileInfo.split(" ")[0]}
-                                fileId={currentFileInfo.split(" ")[0]}
+                                fileId={currentFileInfo.id || null}
                             />
-                            }
                         </div>
 
                         <div className="download-container">

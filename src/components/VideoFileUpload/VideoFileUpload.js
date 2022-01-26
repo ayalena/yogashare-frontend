@@ -6,6 +6,8 @@ import {useHistory} from "react-router-dom";
 import videoUpload from "../../assets/videofile.png";
 import {MdOutlineFileUpload} from "react-icons/md"
 import Button from "../Button/Button";
+import calculateProgress from "../../Helper/CalculateProgress";
+import axios from "axios";
 
 function VideoFileUpload() {
     const [selectedFiles, setSelectedFiles] = useState(undefined);
@@ -21,20 +23,50 @@ function VideoFileUpload() {
         }
     };
 
-    const upload = () => {
+    async function upload(){
         let currentFile = selectedFiles[0];
         setProgress(0);
         setCurrentFile(currentFile);
-        uploadFile(currentFile, (event) => {
-            setProgress(Math.round((100 * event.loaded) / event.total));
-            setMessage("File upload successful")
-        })
-            .catch(() => {
-                setProgress(0);
-                setMessage("Could not upload the file");
-                setCurrentFile(undefined);
+
+        try {
+            const token = localStorage.getItem("token");
+            console.log(token);
+
+            let formData = new FormData();
+            formData.append("file", currentFile);
+
+            const result = await axios.post("http://localhost:8080/api/file/upload", formData, {
+                headers: {
+                    "Content-Type": "form-data",
+                    Authorization: `Bearer ${token}`
+                }
             });
-        setSelectedFiles(undefined);
+
+            setProgress(100);
+            setMessage("File upload successful");
+        } catch(e) {
+            console.error(e);
+            setProgress(0);
+                    setMessage("Could not upload the file");
+                    setCurrentFile(null);
+        }
+
+
+
+        //
+        // uploadFile(currentFile, (event) => {
+        //     console.log(event);
+        //     setProgress(calculateProgress(event));
+        //     setMessage("File upload successful")
+        // })
+        //     .catch((error) => {
+        //         setProgress(0);
+        //         console.log(error.response);
+        //         console.log(error);
+        //         setMessage("Could not upload the file");
+        //         setCurrentFile(undefined);
+        //     });
+        // setSelectedFiles(undefined);
     };
 
     return (

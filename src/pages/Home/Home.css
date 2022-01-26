@@ -34,18 +34,12 @@ b:hover::after {
 }
 
 
-
-
 /*tablet*/
 @media screen and (min-width: 768px) {
 
     .section {
         column-count: 2;
     }
-
-    /*button {*/
-    /*    margin-left: 475px;*/
-    /*}*/
 }
 
 /*laptop*/
@@ -60,10 +54,5 @@ b:hover::after {
         margin: 60px auto;
 
     }
-
-    /*button {*/
-    /*    margin-left: 875px;*/
-
-    /*}*/
 
 }

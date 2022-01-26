@@ -79,7 +79,7 @@ function AuthContextProvider ({ children }) {
     async function logIn(token) {
         localStorage.setItem("token", token)
         const decoded = jwt_decode(token)
-
+        //dit hoeft niet, gebruikersdata wordt al opgehaald bij inloggen
         try {
             const result = await axios(`http://localhost:8080/api/users/${decoded.sub}`,
                 {
@@ -105,7 +105,7 @@ function AuthContextProvider ({ children }) {
         } catch (e) {
             console.error(e)
         }
-        history.push("/userprofile")
+        history.push("/userprofilepage")
         console.log("User logged in")
 
     }

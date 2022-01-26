@@ -11,8 +11,9 @@ function PlayFile({ fileId }) {
         const token = localStorage.getItem("token")
 
         async function getFile() {
-            setUrlLink({video: false})
+            setUrlLink(null)
             try {
+                // je mag niet await gebruiken en daarna een .catch chainen, dan gebruik je twee methodes door elkaar
                 await axios(`http://localhost:8080/api/file/${fileId}`, {
                     responseType: 'arraybuffer',
                     headers: {
@@ -21,19 +22,24 @@ function PlayFile({ fileId }) {
                     }
                 }).then((response) => {
                     const url = window.URL.createObjectURL(new Blob([response.data]));
-                    setUrlLink(url)
+                    setUrlLink(url);
                 })
                     .catch((error) => console.log(error));
+                // Welke catch wil je?
             } catch (e) {
                 console.log(e)
             }
         }
-        getFile()
+        if (fileId) {
+            getFile()
+        }
+
         return () => { setIsMounted(false)}
     }, [])
 
     return (
         <>
+            {console.log(urlLink)}
             {urlLink !== null &&
             <ReactPlayer url={urlLink} width="695px" height="400px" controls={true}/>
             }
