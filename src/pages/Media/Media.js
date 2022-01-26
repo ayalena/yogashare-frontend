@@ -148,27 +148,27 @@ function Media() {
 
                         <div className="download-container">
 
-                            {currentFileInfo.length > 0 &&
+                            {/*{currentFileInfo.length > 0 &&*/}
                             <p>If the video does not load, download it using the download button below</p>
-                            }
+                            {/*}*/}
 
-                            {currentFileInfo.length > 0 &&
+                            {/*{currentFileInfo.length > 0 &&*/}
                             <Button
                                 className="download-button"
                                 onClick={() => downloadFile()}
                                 text="Download!"
                             >
                             </Button>
-                            }
+                            {/*}*/}
                         </div>
 
                         {isAdmin &&
                         <div className="delete-container">
-                            {currentFileInfo.length > 0 &&
+                            {/*{currentFileInfo.length > 0 &&*/}
                             <p>If you want to delete the video, please click the button below</p>
-                            }
+                            {/*}*/}
 
-                            {currentFileInfo.length > 0 &&
+                            {/*{currentFileInfo.length > 0 &&*/}
                             <Button
                                 className="delete-button"
                                 onClick={() => deleteFile()}
@@ -176,7 +176,7 @@ function Media() {
                             >
 
                             </Button>
-                            }
+                            {/*}*/}
                         </div>
                         }
                     </div> : <p>Loading...</p>}
