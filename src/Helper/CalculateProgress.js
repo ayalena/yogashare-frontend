@@ -3,3 +3,4 @@ function calculateProgress(event) {
 }
 
 export default calculateProgress;
+

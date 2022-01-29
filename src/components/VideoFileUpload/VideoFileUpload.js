@@ -15,7 +15,6 @@ function VideoFileUpload() {
     const [progress, setProgress] = useState(0);
     const [message, setMessage] = useState("");
 
-
     const history = useHistory()
     const onDrop = (files) => {
         if (files.length > 0) {
@@ -23,36 +22,29 @@ function VideoFileUpload() {
         }
     };
 
-    async function upload(){
+    async function upload() {
         let currentFile = selectedFiles[0];
         setProgress(0);
         setCurrentFile(currentFile);
-
         try {
             const token = localStorage.getItem("token");
             console.log(token);
-
             let formData = new FormData();
             formData.append("file", currentFile);
-
             const result = await axios.post("http://localhost:8080/api/file/upload", formData, {
                 headers: {
                     "Content-Type": "form-data",
                     Authorization: `Bearer ${token}`
                 }
             });
-
             setProgress(100);
             setMessage("File upload successful");
-        } catch(e) {
+        } catch (e) {
             console.error(e);
             setProgress(0);
-                    setMessage("Could not upload the file");
-                    setCurrentFile(null);
+            setMessage("Could not upload the file");
+            setCurrentFile(null);
         }
-
-
-
         //
         // uploadFile(currentFile, (event) => {
         //     console.log(event);
@@ -90,21 +82,22 @@ function VideoFileUpload() {
                             ) : (
                                 <div className="video-upload-text"> Drag and drop <br/>
                                     <MdOutlineFileUpload className="video-upload-icon"/> or click to upload file
-                                    <p className="file-upload-small-text">(Only *.mp4 videos with a maximum of 150MB will be accepted)</p>
+                                    <p className="file-upload-small-text">(Only *.mp4 videos with a maximum of 150MB
+                                        will be accepted)</p>
                                 </div>
                             )}
-                            </div>
+                        </div>
 
-                            <aside className="selected-file-wrapper">
-                                <Button
-                                    className="upload-button"
-                                    disabled={!selectedFiles}
-                                    onClick={() => upload()}
-                                    text="Upload"
-                                >
+                        <aside className="selected-file-wrapper">
+                            <Button
+                                className="upload-button"
+                                disabled={!selectedFiles}
+                                onClick={() => upload()}
+                                text="Upload"
+                            >
 
-                                </Button>
-                            </aside>
+                            </Button>
+                        </aside>
                     </section>
                 )}
             </Dropzone>

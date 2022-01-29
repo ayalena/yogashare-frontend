@@ -13,7 +13,6 @@ function Media() {
     const {handleSubmit} = useForm({mode: 'onChange'})
     const {isAdmin } = useContext(AuthContext);
 
-
     const [error, toggleError] = useState(false)
     const [loading, toggleLoading] = useState(false)
     const [fileLoading, toggleFileLoading] = useState(false)
@@ -72,8 +71,7 @@ function Media() {
                 const link = document.createElement('a');
                 link.href = url;
                 // value becomes name of file
-
-                // setAttribute is JavaSscript, mag niet in React!!
+                // setAttribute is JavaScript, mag niet in React!!
                 link.setAttribute('download', `${fileIdAndName[1]}`);
                 document.body.appendChild(link);
                 link.click();
