@@ -31,7 +31,7 @@ function VideoFileUpload() {
             console.log(token);
             let formData = new FormData();
             formData.append("file", currentFile);
-            const result = await axios.post("http://localhost:8080/api/file/upload", formData, {
+            const result = await axios.post("http://localhost:8081/api/file/upload", formData, {
                 headers: {
                     "Content-Type": "form-data",
                     Authorization: `Bearer ${token}`

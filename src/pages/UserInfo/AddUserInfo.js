@@ -16,7 +16,7 @@ function AddUserInfo() {
     async function onFormSubmit(data) {
         const token = localStorage.getItem("token")
         try {
-            await axios.post(`http://localhost:8080/api/userprofile`, {
+            await axios.post(`http://localhost:8081/api/userprofile`, {
                 firstName: data.firstName,
                 lastName: data.lastName,
                 age: data.age,

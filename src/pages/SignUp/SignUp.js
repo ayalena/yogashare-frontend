@@ -36,7 +36,7 @@ function SignUp() {
         toggleError(false);
         toggleLoading(true);
         try {
-            const result = await axios.post("http://localhost:8080/api/auth/signup", {
+            const result = await axios.post("http://localhost:8081/api/auth/signup", {
                 username: usernameValue,
                 password: passwordValue,
                 email: emailValue,

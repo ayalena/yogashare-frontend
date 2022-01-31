@@ -21,7 +21,7 @@ function UserProfileContextProvider({children}) {
         if (token) {
             async function getUserData() {
                 try {
-                    const result = await axios(`http://localhost:8080/api/users/${user.id}/userprofile`, {
+                    const result = await axios(`http://localhost:8081/api/users/${user.id}/userprofile`, {
                         headers: {
                             "Content-Type": "application/json",
                             Authorization: `Bearer ${token}`
