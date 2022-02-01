@@ -103,7 +103,7 @@ function AuthContextProvider ({ children }) {
         } catch (e) {
             console.error(e)
         }
-        // history.push("/userprofilepage")
+        history.push("/userprofilepage")
     }
 
     function logOut() {
