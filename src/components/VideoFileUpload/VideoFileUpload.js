@@ -1,12 +1,10 @@
 import {useState} from "react";
 import Dropzone from "react-dropzone";
 import "./VideoFileUpload.css"
-import {uploadFile} from "../../services/FileUploadService";
 import {useHistory} from "react-router-dom";
 import videoUpload from "../../assets/videofile.png";
 import {MdOutlineFileUpload} from "react-icons/md"
 import Button from "../Button/Button";
-import calculateProgress from "../../Helper/CalculateProgress";
 import axios from "axios";
 
 function VideoFileUpload() {
@@ -45,20 +43,6 @@ function VideoFileUpload() {
             setMessage("Could not upload the file");
             setCurrentFile(null);
         }
-        //
-        // uploadFile(currentFile, (event) => {
-        //     console.log(event);
-        //     setProgress(calculateProgress(event));
-        //     setMessage("File upload successful")
-        // })
-        //     .catch((error) => {
-        //         setProgress(0);
-        //         console.log(error.response);
-        //         console.log(error);
-        //         setMessage("Could not upload the file");
-        //         setCurrentFile(undefined);
-        //     });
-        // setSelectedFiles(undefined);
     };
 
     return (
@@ -73,7 +57,6 @@ function VideoFileUpload() {
                                 src={videoUpload}
                                 alt="video-upload-image"
                             />
-                            {/*<label htmlFor="video-upload">Upload a video: </label>*/}
                             <input {...getInputProps()} />
                             {selectedFiles && selectedFiles[0].name ? (
                                 <div className="selected-video-file">
@@ -95,7 +78,6 @@ function VideoFileUpload() {
                                 onClick={() => upload()}
                                 text="Upload"
                             >
-
                             </Button>
                         </aside>
                     </section>
@@ -106,7 +88,6 @@ function VideoFileUpload() {
                 <div className="alert-light" role="alert">
                     {message}
                 </div>
-
                 {progress === 100 &&
                 <Button
                     className="media-button"
@@ -116,7 +97,6 @@ function VideoFileUpload() {
                 </Button>
                 }
             </div>
-
         </div>
     )
 }

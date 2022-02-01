@@ -102,3 +102,10 @@ button {
     height: 35px;
 }
 
+/*tablet*/
+@media screen and (min-width: 768px) {
+
+    .round-button {
+        margin-right: 155px;
+    }
+}

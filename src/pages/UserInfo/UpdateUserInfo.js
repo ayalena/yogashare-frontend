@@ -1,12 +1,11 @@
 import {useForm} from "react-hook-form";
-import React, {useContext, useState} from "react";
+import React, {useContext} from "react";
 import {UserProfileContext} from "../../context/UserProfileContext";
 import {useHistory} from "react-router-dom";
 import axios from "axios";
 import logo from "../../assets/ohm.png";
 import PageHeader from "../../components/PageHeader/PageHeader";
 import Button from "../../components/Button/Button";
-import './UpdateUserInfo.css';
 
 function UpdateUserInfo() {
     const {register, handleSubmit, formState: {errors}} = useForm({mode: 'onChange'})
@@ -40,13 +39,13 @@ function UpdateUserInfo() {
     return (
         <>
             <PageHeader icon={logo} title="Update Info"/>
-
             {userProfile &&
             <div>
                 <main>
                     <form onSubmit={handleSubmit(onFormSubmit)}>
                         <div className="form-container">
                             <label htmlFor="update-information">
+
                                 <div>
                                     <label htmlFor="firstName"> First Name </label>
                                     <input

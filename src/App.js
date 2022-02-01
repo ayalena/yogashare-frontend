@@ -39,9 +39,6 @@ function App() {
               <Route path="/userprofilepage">
                   {isAuth ? <UserProfilePage/> : <Redirect to="/signin"/>}
               </Route>
-              {/*<Route path="/userprofile/:id">*/}
-              {/*    <UserProfilePage/>*/}
-              {/*</Route>*/}
               <Route path="/fileupload">
                   {isAdmin ? <FileUploadPage/> : <Redirect to="/"/>}
               </Route>

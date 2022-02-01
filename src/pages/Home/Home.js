@@ -61,8 +61,8 @@ function Home() {
                         similique sint vero?
                     </p>
 
-                    <p>To register, click  <Link to="/signup"> <b> here </b></Link></p>
-                    <p>To login, click  <Link to="/signin"><b> here </b></Link></p>
+                    <p>To register, click  <Link to="/signup"> <b> here! </b></Link></p>
+                    <p>To login, click  <Link to="/signin"><b> here! </b></Link></p>
 
                     <Button
                         className="round-button"
@@ -74,7 +74,6 @@ function Home() {
                 </section>
             </div>
             <Footer/>
-
         </>
     );
 }

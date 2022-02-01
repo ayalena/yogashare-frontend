@@ -35,41 +35,15 @@ function SignIn() {
             }, {
                 cancelToken: source.token,
             })
-            //display result
-            console.log(result.data);
             //pass token to login function from context
             logIn(result.data.accessToken);
             //push to profile page after
-            // history.push("/userprofilepage");
+            history.push("/userprofilepage");
         } catch (e) {
             console.error(e);
             toggleError(true);
         }
     }
-
-    //fake server
-    // async function handleSubmit(e) {
-    //     e.preventDefault();
-    //     toggleError(false);
-    //     try {
-    //         const result = await axios.post('http://localhost:3000/login', {
-    //             email: emailValue,
-    //             password: passwordValue,
-    //         }, {
-    //             cancelToken: source.token,
-    //         })
-    //         //display result
-    //         console.log(result.data);
-    //         //pass token to login function from context
-    //         logIn(result.data.accessToken);
-    //         //push to profile page
-    //         history.push("/userprofile");
-    //     } catch (e) {
-    //         console.error(e);
-    //         toggleError(true);
-    //     }
-    // }
-
 
     return (
         <>

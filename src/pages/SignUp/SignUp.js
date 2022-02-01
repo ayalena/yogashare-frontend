@@ -52,30 +52,6 @@ function SignUp() {
         toggleLoading(false);
     }
 
-    //fake server
-    // async function handleSubmit(e) {
-    //     e.preventDefault();
-    //     toggleError(false);
-    //     toggleLoading(true);
-    //
-    //     try {
-    //         const result = await axios.post('http://localhost:3000/register', {
-    //             email: emailValue,
-    //             user: usernameValue,
-    //             password: passwordValue,
-    //         }, {
-    //             cancelToken: source.token,
-    //         })
-    //
-    //         console.log(result.data);
-    //         history.push("/signin")
-    //     } catch (e) {
-    //         console.error(e);
-    //         toggleError(true);
-    //     }
-    //     toggleLoading(false);
-    // }
-
     return (
         <>
             <PageHeader icon={logo} title="Register"/>
