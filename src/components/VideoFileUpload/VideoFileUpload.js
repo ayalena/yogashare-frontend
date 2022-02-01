@@ -26,7 +26,6 @@ function VideoFileUpload() {
         setCurrentFile(currentFile);
         try {
             const token = localStorage.getItem("token");
-            console.log(token);
             let formData = new FormData();
             formData.append("file", currentFile);
             const result = await axios.post("http://localhost:8081/api/file/upload", formData, {

@@ -71,7 +71,6 @@ function Media() {
                 const url = window.URL.createObjectURL(new Blob([response.data]));
                 const link = document.createElement('a');
                 link.href = url;
-                console.log(url);
                 // value becomes name of file
                 link.setAttribute('download', `${fileNames[0]}`);
                 document.body.appendChild(link);

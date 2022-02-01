@@ -43,7 +43,6 @@ function SignUp() {
             }, {
                 cancelToken: source.token,
             })
-            console.log(result)
             history.push("/signin")
         } catch (e) {
             console.error(e);

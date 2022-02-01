@@ -21,10 +21,9 @@ function PlayFile({ fileId }) {
                 })
                     .then((response) => {
                     const url = window.URL.createObjectURL(new Blob([response.data]));
-                    console.log(url);
                     setUrlLink(url);
                 })
-                    .catch((error) => console.log(error));
+                    .catch((error) => console.log(error.message));
             }
             catch (e) {
                 console.error(e);
@@ -38,7 +37,6 @@ function PlayFile({ fileId }) {
 
     return (
         <>
-            {console.log(urlLink)}
             {urlLink !== null &&
             <ReactPlayer url={urlLink} width="695px" height="400px" controls={true}/>
             }
