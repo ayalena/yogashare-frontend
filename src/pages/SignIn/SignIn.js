@@ -91,9 +91,9 @@ function SignIn() {
                     </div>
 
                     <div>
-                        <label htmlFor="password"> Wachtwoord: </label>
+                        <label htmlFor="password"> Password: </label>
                         <input
-                            type="text"
+                            type="password"
                             placeholder=""
                             name="password"
                             value={passwordValue}

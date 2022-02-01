@@ -9,6 +9,7 @@ import Footer from "../../components/Footer/Footer";
 import {AuthContext} from "../../context/AuthContext";
 import Button from "../../components/Button/Button";
 import fileDownload from "js-file-download";
+import {Link} from "react-router-dom";
 
 function Media() {
     const {handleSubmit} = useForm({mode: 'onChange'})
@@ -59,14 +60,26 @@ function Media() {
         }
     }, [])
 
+    console.log(fileInfo)
+    console.log(currentFileInfo)
+
     async function downloadFile() {
         // const fileIdAndName = currentFileInfo.split(" ")
         // console.log(fileInfo)
         const fileId = currentFileInfo
         // console.log(fileId);
-        const fileNames = fileInfo.map(function(i) {
-            return i.name
-        });
+        // const fileNames = fileInfo.map(function(i) {
+        //     return i.name
+        // });
+        // console.log(fileNames);
+        // console.log(currentFileInfo);
+        console.log(fileInfo);
+        console.log(fileInfo.id);
+
+        const fileNames = fileInfo.map(fileName => {
+
+            return fileName.name;
+        })
         console.log(fileNames);
 
         await axios(`http://localhost:8081/api/file/${fileId}`, {
@@ -80,8 +93,9 @@ function Media() {
                 const url = window.URL.createObjectURL(new Blob([response.data]));
                 const link = document.createElement('a');
                 link.href = url;
+                console.log(url);
                 // value becomes name of file
-                // setAttribute is JavaScript, mag niet in React!!
+                // setAttribute is JavaScript, mag niet in React, maar kon geen andere toepasselijke methodes vinden :((
                 link.setAttribute('download', `${fileNames[0]}`);
                 document.body.appendChild(link);
                 link.click();
@@ -126,12 +140,12 @@ function Media() {
                 {!fileLoading ?
                     <div className="video-container">
 
-                        {fileInfo.length > 0 &&
+                        {/*{fileInfo.length > 0 &&*/}
                         <p className="video-text">Choose a video from your preferred teacher:</p>
-                        }
+                        {/*}*/}
 
                         <div>
-                            {fileInfo.length > 0 &&
+                            {/*{fileInfo.length > 0 &&*/}
                             <form
                                 className="select-box-container"
                                 onSubmit={handleSubmit(onFormSubmit)}>
@@ -141,43 +155,61 @@ function Media() {
                                     onChange={handleChange}
 
                                 >
-                                    <option disabled>Video file name: Uploaded by user:</option>
+                                    <option disabled>Title: Teacher:</option>
                                     {/*{console.log(currentFileInfo)}*/}
                                     {fileInfo.map(fileId => {
                                         return <option
                                             key={fileId.id}
                                             value={fileId.id}
                                         >
-                                            {fileId.id}
-                                            {fileId.name}
-                                            {fileId.username}
+                                            {/*{fileId.id}*/}
+                                            {fileId.name} - {fileId.username}
                                         </option>
                                     })}
                                     ></select>
                             </form>
-                            }
-                        </div>
-
-                        <div className="video">
-                            {/*{console.log(fileInfo)}*/}
-                            {/*{console.log(currentFileInfo)}*/}
-                            {/*{Object.keys(currentFileInfo).length > 0 &&*/}
-                            {currentFileInfo.length > 0 &&
-                            <PlayFile
-                                key={currentFileInfo}
-                                fileId={currentFileInfo}
-                            />
-                            }
                             {/*}*/}
                         </div>
 
-                        <div className="download-container">
+                        <div className="video">
+                            {console.log(fileInfo)}
+                            {/*{console.log(currentFileInfo)}*/}
+                            {/*{Object.keys(currentFileInfo).length > 0 &&*/}
+                            {/*{currentFileInfo.length > 0 &&*/}
 
-                            {currentFileInfo.length > 0 &&
-                            <p>If the video does not load, download it using the download button below</p>
+                            {/*{!fileInfo.length > 0 &&*/}
+                            {/*< PlayFile*/}
+                            {/*    key={fileInfo[0].id}*/}
+                            {/*    fileId={fileInfo[0].id}*/}
+                            {/*/>*/}
+                            {/*}*/}
+
+                            {fileInfo.length > 0 &&
+                            < PlayFile
+                                key={currentFileInfo}
+                                fileId={currentFileInfo}
+                                />
                             }
 
-                            {currentFileInfo.length > 0 &&
+
+
+
+
+
+                            {/*}*/}
+                            {/*}*/}
+                        </div>
+
+                        {!isAdmin && fileInfo.length < 1 &&
+                                <p>No video's yet! Check the <Link to="/"> <b> homepage </b> </Link> to see when a new video will be aired.</p>
+                        }
+
+
+                        <div className="download-container">
+                            {fileInfo.length > 0 &&
+                            <p>If the video does not load, download it using the download button below</p>
+                            }
+                            {fileInfo.length > 0 &&
                             <Button
                                 className="download-button"
                                 onClick={() => downloadFile()}
@@ -189,11 +221,15 @@ function Media() {
 
                         {isAdmin &&
                         <div className="delete-container">
-                            {currentFileInfo.length > 0 &&
+                            {fileInfo.length < 1 &&
+                            <p>No video's yet! To upload a video, click <Link to="/fileupload"> <b> here! </b> </Link></p>
+                            }
+
+                            {fileInfo.length > 0 &&
                             <p>If you want to delete the video, please click the button below</p>
                             }
 
-                            {currentFileInfo.length > 0 &&
+                            {fileInfo.length > 0 &&
                             <Button
                                 className="delete-button"
                                 onClick={() => deleteFile()}

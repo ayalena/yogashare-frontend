@@ -6,6 +6,7 @@ import axios from "axios";
 import logo from "../../assets/ohm.png";
 import PageHeader from "../../components/PageHeader/PageHeader";
 import Button from "../../components/Button/Button";
+import './UpdateUserInfo.css';
 
 function UpdateUserInfo() {
     const {register, handleSubmit, formState: {errors}} = useForm({mode: 'onChange'})
