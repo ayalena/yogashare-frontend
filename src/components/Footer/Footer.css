@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.footer-container {
+    width: 100%;
+    /*display: flex;*/
+    /*justify-content: space-around;*/
+    /*align-items: flex-end;*/
+    height: 100px;
+    background: url(../../assets/header1.jpg);
+    background-size: cover;
+    margin-top: 233px;
+}

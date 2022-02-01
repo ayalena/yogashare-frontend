@@ -1,0 +1,29 @@
+.media-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-container {
+    display: inline-block;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.download-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.video {
+    margin: 20px;
+}
+
+.video-text {
+    margin: 20px;
+}
+

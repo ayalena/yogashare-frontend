@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+/*phone*/
+body {
+    font-family: 'Cormorant Garamond', 'Arial', sans-serif;
+    background-color: #f2fffc;
+    line-height: 1.5;
+    color: #8e0000;
+}
+
+.section {
+    column-count: 1;
+
+}
+
+.page-container {
+    width: 90%;
+    margin: 60px auto;
+    text-align: center;
+}
+
+b::after {
+    display: block;
+    content: "";
+    width: 0%;
+    font-size: larger;
+    height: 2px;
+    background-color: #8e0000;
+    transition: width .45s ease-in-out;
+}
+
+b:hover::after {
+    width: 100%;
+}
+
+
+/*tablet*/
+@media screen and (min-width: 768px) {
+
+    .section {
+        column-count: 2;
+    }
+}
+
+/*laptop*/
+@media screen and (min-width: 992px) {
+
+    .section {
+        column-count: 2;
+    }
+
+    .page-container {
+        width: 1000px;
+        margin: 60px auto;
+
+    }
+
+}
